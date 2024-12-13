@@ -13,16 +13,27 @@
         //For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
         public static string MonthName(int monthNumber)
         {
-            return default;
+            return monthNumber switch
+            {
+                1 => "January",
+                2 => "February",
+                3 => "March",
+                4 => "April",
+                5 => "May",
+                6 => "June",
+                7 => "July",
+                8 => "August",
+                9 => "September",
+                10 => "October",
+                11 => "November",
+                12 => "December"
+            };
         }
 
         //Write a function that converts hours into seconds.
         //60 seconds in a minute, 60 minutes in an hour.
         //Don't forget to return your answer.
-        public static int HowManySeconds(int hours)
-        {
-            return default;
-        }
+        public static int HowManySeconds(int hours) => (hours * 60) * 60;
 
         //Create a function that takes a number as an argument and returns "Fizz", "Buzz" or "FizzBuzz".
         //    If the number is a multiple of 3 the output should be "Fizz".
@@ -32,7 +43,18 @@
         //    The output should always be a string even if it is not a multiple of 3 or/and 5.
         public static string FizzBuzz(int number)
         {
-            return default;
+            bool multipleOfThree = number % 3 == 0;
+            bool multipleOfFive = number % 5 == 0;
+            if (multipleOfThree || multipleOfFive)
+            {
+                if (multipleOfThree && !multipleOfFive)
+                    return "Fizz";
+                if (multipleOfFive && !multipleOfThree)
+                    return "Buzz";
+
+                return "FizzBuzz";
+            }
+            return number.ToString();
 
         }
     }
